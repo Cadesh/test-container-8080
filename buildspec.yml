@@ -1,0 +1,32 @@
+version: 0.2
+
+env:
+  secrets-manager:
+    ACC_SECRET_VAR: "AWS_ACC:ACC_SECRET_VAR"
+
+phases:
+  pre_build:
+    commands:
+      - AWS_ACC=ACC_SECRET_VAR
+      - echo Logging in to Amazon ECR...
+      - aws --version
+      - REGION=ca-central-1
+      - ECR_URI=$AWS_ACC.dkr.ecr.$REGION.amazonaws.com
+      - aws ecr get-login-password --region $REGION | docker login --username AWS --password-stdin $ECR_URI
+      - BASE_IMG_NAME=test-container-8080
+      - DOCKERFILE=Dockerfile-Test-Container-8080
+      - REPOSITORY_URI=$AWS_ACC.dkr.ecr.$REGION.amazonaws.com/$BASE_IMG_NAME
+      - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
+      - IMAGE_TAG=${COMMIT_HASH:=latest}
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Building the Docker image...
+      - docker build -t $REPOSITORY_URI:latest -f ./$DOCKERFILE .
+      - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Pushing the Docker images...
+      - docker push $REPOSITORY_URI:latest
+      - docker push $REPOSITORY_URI:$IMAGE_TAG
