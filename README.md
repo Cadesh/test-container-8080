@@ -1,6 +1,6 @@
-# Test-Contianter-8080
+![build status](https://codebuild.ca-central-1.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiUHZtSUI2M3h0YjdBWlFLbUtGam9MK1JVNE1aTWdhcS8yNjVTTTJKWjYwaUdvTlVqa0kvRHlRNzI5ejZlN3ZNVHc5Z2dSUThVbmowaXpJcldxMEo0UkpzPSIsIml2UGFyYW1ldGVyU3BlYyI6Ikd5UUhaYWQvVndGbmJjKzUiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=main)
 
-https://codebuild.ca-central-1.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiUHZtSUI2M3h0YjdBWlFLbUtGam9MK1JVNE1aTWdhcS8yNjVTTTJKWjYwaUdvTlVqa0kvRHlRNzI5ejZlN3ZNVHc5Z2dSUThVbmowaXpJcldxMEo0UkpzPSIsIml2UGFyYW1ldGVyU3BlYyI6Ikd5UUhaYWQvVndGbmJjKzUiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=main
+# Test-Contianter-8080
 
 This Image was created to test the CodeCommit and CodeBuild in AWS. 
 
