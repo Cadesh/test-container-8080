@@ -5,6 +5,8 @@ env:
     AWS_ACC: "arn:aws:secretsmanager:ca-central-1:637423286507:secret:aws_account_id-3NDDly:AWS_ACC" 
     #GITHUB_USER: "arn:aws:secretsmanager:ca-central-1:637423286507:secret:github_credentials-8SFFpa:GITHUB_USER"
     GITHUB_TOKEN: "arn:aws:secretsmanager:ca-central-1:637423286507:secret:github_credentials-8SFFpa:GITHUB_TOKEN"
+  variables:
+    MY_ENV_VAR: my_value_100
 
 phases:
   pre_build:
