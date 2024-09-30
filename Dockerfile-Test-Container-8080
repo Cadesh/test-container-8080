@@ -4,6 +4,8 @@ FROM python:3.9-slim-buster
 # Set the working directory
 WORKDIR /app
 
+ENV MY_ENV_VAR2=my_value_101
+
 # Copy the requirements.txt file
 COPY requirements.txt .
 
