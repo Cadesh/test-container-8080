@@ -5,6 +5,7 @@ FROM python:3.9-slim-buster
 WORKDIR /app
 
 ENV MY_ENV_VAR2=my_value_101
+ENV MY_ENV_VAR3=$new_var
 
 # Copy the requirements.txt file
 COPY requirements.txt .
