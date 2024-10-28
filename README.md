@@ -3,7 +3,7 @@
 
 # Test-Containter-8080
 
-This Image was created to test CodeBuild in AWS. 
+This Image was created to test CodeBuild integration with GitHub.
 
 To make this work you must: 
 
