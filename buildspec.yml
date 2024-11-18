@@ -26,8 +26,7 @@ phases:
     commands:
       #- git clone https://$GITHUB_TOKEN@$GITHUB_REPO
       # as the repo is public we dont need the token to clone
-      #- git clone https://$GITHUB_REPO
-      - curl -X POST -H "Content-Type: application/json" -d '{"key":"value"}' http://3.97.71.221:5000/hello || { echo "API request failed"; exit 1; }
+      - git clone https://$GITHUB_REPO
       - echo Build started on `date`
       - echo Building the Docker image...
       - curl -X POST -H "Content-Type: application/json" -d '{"key":"test1"}' http://3.96.45.59:5000/submit
