@@ -41,7 +41,7 @@ phases:
         curl -X POST -H 'accept: application/json'
         -H 'Authorization: Bearer PAK-XXX'
         -H 'Content-Type: application/json'
-        -d '{"branch":"master","parallel":4,"params":,"resultLabels":,"retries":0,"timeout":600000,"turboMode":false,"mode":"extension"}'
+        -d '{"branch":"master","parallel":4,"params":{},"resultLabels":[],"retries":0,"timeout":600000,"turboMode":false,"mode":"extension"}'
         http://3.96.45.59:5000/submit
 
   post_build:
