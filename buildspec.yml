@@ -29,18 +29,33 @@ phases:
       #- git clone https://$GITHUB_REPO
       - echo Build started on `date`
       - echo Building the Docker image...
-      - docker build -t $DOCKER_REPO_URI:latest -f ./$DOCKERFILE --build-arg new_var=my_value_103 .
-      - docker tag $DOCKER_REPO_URI:latest $DOCKER_REPO_URI:$IMAGE_TAG
+      #- docker build -t $DOCKER_REPO_URI:latest -f ./$DOCKERFILE --build-arg new_var=my_value_103 .
+      #- docker tag $DOCKER_REPO_URI:latest $DOCKER_REPO_URI:$IMAGE_TAG
       - curl http://3.96.45.59:5000/hello
       #- curl https://8.8.8.8
       #- curl -X POST -H "Content-Type: application/json" -d '{"key":"test1"}' http://3.96.45.59:5000/submit
       #- curl -v -X POST -H "Content-Type: application/json" -d '{"key":"test1"}' http://3.96.45.59:5000/submit
       - "curl -v -X POST -H 'Content-Type: application/json' -d '{\"key\":\"test1\"}' http://3.96.45.59:5000/submit"
+      - |
+      curl -X 'POST' 'https://api.testim.io/test-plans/run/anRGvoMAwKMKmihS' \
+      -H 'accept: application/json' \
+      -H 'Authorization: Bearer PAK-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX' \
+      -H 'Content-Type: application/json' \
+      -d '{
+        "branch": "master",
+        "parallel": 4,
+        "params": {},
+        "resultLabels": [],
+        "retries": 0,
+        "timeout": 600000,
+        "turboMode": false,
+        "mode": "extension"
+      }'
 
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker images...
-      - docker push $DOCKER_REPO_URI:latest
-      - docker push $DOCKER_REPO_URI:$IMAGE_TAG
+      #- docker push $DOCKER_REPO_URI:latest
+      #- docker push $DOCKER_REPO_URI:$IMAGE_TAG
 
