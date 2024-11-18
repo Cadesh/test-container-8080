@@ -31,8 +31,8 @@ phases:
       - echo Building the Docker image...
       - docker build -t $DOCKER_REPO_URI:latest -f ./$DOCKERFILE --build-arg new_var=my_value_103 .
       - docker tag $DOCKER_REPO_URI:latest $DOCKER_REPO_URI:$IMAGE_TAG
-      #- curl http://3.96.45.59:5000/hello
-      - curl https://8.8.8.8
+      - curl http://3.96.45.59:5000/hello
+      #- curl https://8.8.8.8
      #- curl -X POST -H "Content-Type: application/json" -d '{"key":"test1"}' http://3.96.45.59:5000/submit
 
   post_build:
