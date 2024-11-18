@@ -29,15 +29,11 @@ phases:
       #- git clone https://$GITHUB_REPO
       - echo Build started on `date`
       - echo Building the Docker image...
-      #- curl https://example.com
-      - echo Downloading File
-      - curl -O https://github.com/Cadesh/Artillery-Scripts/blob/master/test_02.1_typeHelp.yml
-      - ls
-      #- docker build -t $DOCKER_REPO_URI:latest -f ./$DOCKERFILE --build-arg new_var=my_value_103 .
-      #- docker tag $DOCKER_REPO_URI:latest $DOCKER_REPO_URI:$IMAGE_TAG
+      - docker build -t $DOCKER_REPO_URI:latest -f ./$DOCKERFILE --build-arg new_var=my_value_103 .
+      - docker tag $DOCKER_REPO_URI:latest $DOCKER_REPO_URI:$IMAGE_TAG
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker images...
-      #- docker push $DOCKER_REPO_URI:latest
-      #- docker push $DOCKER_REPO_URI:$IMAGE_TAG
+      - docker push $DOCKER_REPO_URI:latest
+      - docker push $DOCKER_REPO_URI:$IMAGE_TAG
