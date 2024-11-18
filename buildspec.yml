@@ -36,21 +36,15 @@ phases:
       #- curl -X POST -H "Content-Type: application/json" -d '{"key":"test1"}' http://3.96.45.59:5000/submit
       #- curl -v -X POST -H "Content-Type: application/json" -d '{"key":"test1"}' http://3.96.45.59:5000/submit
       - "curl -v -X POST -H 'Content-Type: application/json' -d '{\"key\":\"test1\"}' http://3.96.45.59:5000/submit"
-      - |
-      "curl -X POST http://3.96.45.59:5000/submit \
-      -H 'accept: application/json' \
-      -H 'Authorization: Bearer PAK-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX' \
-      -H 'Content-Type: application/json' \
-      -d '{
-        \"branch\": \"master\",
-        \"parallel\": 4,
-        \"params\": {},
-        \"resultLabels\": [],
-        \"retries\": 0,
-        \"timeout\": 600000,
-        \"turboMode\": false,
-        \"mode\": \"extension\"
-      }'
+      - "curl -X POST -H 'accept: application/json' -H 'Authorization: Bearer PAK-XXX' -H 'Content-Type: application/json' -d '{\"branch\":\"master\"}' http://3.96.45.59:5000/submit"
+ #       \"parallel\": 4,
+ #       \"params\": {},
+ #       \"resultLabels\": [],
+ #       \"retries\": 0,
+ #       \"timeout\": 600000,
+ #       \"turboMode\": false,
+ #       \"mode\": \"extension\"
+ #     }'
 
   post_build:
     commands:
