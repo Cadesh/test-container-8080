@@ -21,6 +21,7 @@ phases:
       - DOCKER_REPO_URI=$AWS_ACC.dkr.ecr.$REGION.amazonaws.com/$BASE_IMG_NAME
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - IMAGE_TAG=${COMMIT_HASH:=latest}
+      - URL="3.96.45.59:5000"
 
   build:
     commands:
@@ -31,7 +32,7 @@ phases:
       - echo Building the Docker image...
       - docker build -t $DOCKER_REPO_URI:latest -f ./$DOCKERFILE --build-arg new_var=my_value_103 .
       - docker tag $DOCKER_REPO_URI:latest $DOCKER_REPO_URI:$IMAGE_TAG
-      - `curl http://3.96.45.59:5000/hello`
+      - curl http://$URL/hello
      #- curl -X POST -H "Content-Type: application/json" -d '{"key":"test1"}' http://3.96.45.59:5000/submit
 
   post_build:
