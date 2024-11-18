@@ -31,7 +31,8 @@ phases:
       - echo Building the Docker image...
       #- curl https://example.com
       - echo Downloading File
-      - curl -O https://github.com/Cadesh/test-container-8080/edit/main/buildspec.yml
+      - curl -O https://github.com/Cadesh/Artillery-Scripts/blob/master/test_02.1_typeHelp.yml
+      - ls
       #- docker build -t $DOCKER_REPO_URI:latest -f ./$DOCKERFILE --build-arg new_var=my_value_103 .
       #- docker tag $DOCKER_REPO_URI:latest $DOCKER_REPO_URI:$IMAGE_TAG
   post_build:
