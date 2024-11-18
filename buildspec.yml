@@ -37,7 +37,7 @@ phases:
       #- curl -v -X POST -H "Content-Type: application/json" -d '{"key":"test1"}' http://3.96.45.59:5000/submit
       - "curl -v -X POST -H 'Content-Type: application/json' -d '{\"key\":\"test1\"}' http://3.96.45.59:5000/submit"
       - |
-      curl -X 'POST' 'https://api.testim.io/test-plans/run/anRGvoMAwKMKmihS' \
+      curl -X 'POST' 'http://3.96.45.59:5000/submit' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer PAK-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX' \
       -H 'Content-Type: application/json' \
