@@ -23,7 +23,7 @@ phases:
       - IMAGE_TAG=${COMMIT_HASH:=latest}
       # - echo Installing codebuild-extras...
       # - curl -fsSL https://raw.githubusercontent.com/thii/aws-codebuild-extras/master/install >> extras.sh
-      - . ./extras.sh
+      - . ./githubvariables.sh
       - printenv
 
   build:
