@@ -21,6 +21,7 @@ phases:
       - DOCKER_REPO_URI=$AWS_ACC.dkr.ecr.$REGION.amazonaws.com/$BASE_IMG_NAME
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - IMAGE_TAG=${COMMIT_HASH:=latest}
+      - printenv
 
   build:
     commands:
