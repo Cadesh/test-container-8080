@@ -1,5 +1,5 @@
 #!/bin/bash
 
-echo "Hello from script! This is a test script."	
+echo "Hello from script1! This is a test script."	
 
 sleep infinity
