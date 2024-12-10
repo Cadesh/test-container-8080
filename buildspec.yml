@@ -1,9 +1,9 @@
 version: 0.2
 env:
   secrets-manager:
-    AWS_ACC: "arn:aws:secretsmanager:ca-central-1:637423286507:secret:aws_account_id-3NDDly:AWS_ACC" 
-    #GITHUB_USER: "arn:aws:secretsmanager:ca-central-1:637423286507:secret:github_credentials-8SFFpa:GITHUB_USER"
-    GITHUB_TOKEN: "arn:aws:secretsmanager:ca-central-1:637423286507:secret:github_credentials-8SFFpa:GITHUB_TOKEN"
+    AWS_ACC: "arn:aws:secretsmanager:ca-central-1:637423286508:secret:aws_account_id-3NDDly:AWS_ACC" 
+    #GITHUB_USER: "arn:aws:secretsmanager:ca-central-1:637423286508:secret:github_credentials-8SFFpa:GITHUB_USER"
+    GITHUB_TOKEN: "arn:aws:secretsmanager:ca-central-1:637423286508:secret:github_credentials-8SFFpa:GITHUB_TOKEN"
   variables:
     MY_ENV_VAR: my_value_100
 
@@ -26,28 +26,28 @@ phases:
     commands:
       #- git clone https://$GITHUB_TOKEN@$GITHUB_REPO
       # as the repo is public we dont need the token to clone
-      #- git clone https://$GITHUB_REPO
+      - git clone https://$GITHUB_REPO
       - echo Build started on `date`
       - echo Building the Docker image...
-      #- docker build -t $DOCKER_REPO_URI:latest -f ./$DOCKERFILE --build-arg new_var=my_value_103 .
-      #- docker tag $DOCKER_REPO_URI:latest $DOCKER_REPO_URI:$IMAGE_TAG
+      - docker build -t $DOCKER_REPO_URI:latest -f ./$DOCKERFILE --build-arg new_var=my_value_103 .
+      - docker tag $DOCKER_REPO_URI:latest $DOCKER_REPO_URI:$IMAGE_TAG
       #- curl http://3.96.45.59:5000/hello
       #- curl https://8.8.8.8
       #- curl -X POST -H "Content-Type: application/json" -d '{"key":"test1"}' http://3.96.45.59:5000/submit
       #- curl -v -X POST -H "Content-Type: application/json" -d '{"key":"test1"}' http://3.96.45.59:5000/submit
       #- "curl -v -X POST -H 'Content-Type: application/json' -d '{\"key\":\"test1\"}' http://3.96.45.59:5000/submit"
-      - "curl -X POST -H 'accept: application/json' -H 'Authorization: Bearer PAK-XXX' -H 'Content-Type: application/json' -d '{\"branch\":\"master\",\"parallel\":4,\"params\":{}}' http://3.96.45.59:5000/submit"
-      - >- 
-        curl -X POST -H 'accept: application/json'
-        -H 'Authorization: Bearer PAK-XXX'
-        -H 'Content-Type: application/json'
-        -d '{"branch":"master","parallel":4,"params":{},"resultLabels":[],"retries":0,"timeout":600000,"turboMode":false,"mode":"extension"}'
-        http://3.96.45.59:5000/submit
+      #- "curl -X POST -H 'accept: application/json' -H 'Authorization: Bearer PAK-XXX' -H 'Content-Type: application/json' -d '{\"branch\":\"master\",\"parallel\":4,\"params\":{}}' http://3.96.45.59:5000/submit"
+      #- >- 
+      #  curl -X POST -H 'accept: application/json'
+      #  -H 'Authorization: Bearer PAK-XXX'
+      #  -H 'Content-Type: application/json'
+      #  -d '{"branch":"master","parallel":4,"params":{},"resultLabels":[],"retries":0,"timeout":600000,"turboMode":false,"mode":"extension"}'
+      #  http://3.96.45.59:5000/submit
 
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker images...
-      #- docker push $DOCKER_REPO_URI:latest
-      #- docker push $DOCKER_REPO_URI:$IMAGE_TAG
+      - docker push $DOCKER_REPO_URI:latest
+      - docker push $DOCKER_REPO_URI:$IMAGE_TAG
 
