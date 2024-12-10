@@ -1,9 +1,9 @@
 version: 0.2
 env:
-  secrets-manager:
-    AWS_ACC: "arn:aws:secretsmanager:ca-central-1:637423286508:secret:aws_account_id-3NDDly:AWS_ACC" 
+  #secrets-manager:
+    #AWS_ACC: "arn:aws:secretsmanager:ca-central-1:637423286508:secret:aws_account_id-3NDDly:AWS_ACC" 
     #GITHUB_USER: "arn:aws:secretsmanager:ca-central-1:637423286508:secret:github_credentials-8SFFpa:GITHUB_USER"
-    GITHUB_TOKEN: "arn:aws:secretsmanager:ca-central-1:637423286508:secret:github_credentials-8SFFpa:GITHUB_TOKEN"
+    #GITHUB_TOKEN: "arn:aws:secretsmanager:ca-central-1:637423286508:secret:github_credentials-8SFFpa:GITHUB_TOKEN"
   variables:
     MY_ENV_VAR: my_value_100
 
